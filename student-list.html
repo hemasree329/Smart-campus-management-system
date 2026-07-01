@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Registered Students</h1>
+
+    <input type="text" id="searchBox" placeholder="Search by Name">
+
+    <br><br>
+
+    <button onclick="searchStudent()">
+        Search
+    </button>
+
+    <br><br>
+
+    <div class="login-box">
+
+        <div id="studentData"></div>
+
+        <br><br>
+
+        <button onclick="deleteStudents()">
+            Delete All Students
+        </button>
+
+    </div>
+
+    <script>
+
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+
+        displayStudents();
+
+        function displayStudents() {
+
+            let output = "";
+
+            if (students.length > 0) {
+
+                for (let i = 0; i < students.length; i++) {
+
+                    output +=
+                        "<h3>Name: " + students[i].name + "</h3>" +
+                        "<p>Roll No: " + students[i].rollno + "</p>" +
+                        "<p>Department: " + students[i].department + "</p>" +
+                        "<p>Year: " + students[i].year + "</p>" +
+                        "<hr>";
+                }
+
+            } else {
+
+                output = "<h3>No Students Registered</h3>";
+            }
+
+            document.getElementById("studentData").innerHTML = output;
+        }
+
+        function searchStudent() {
+
+            let searchValue =
+                document.getElementById("searchBox").value.toLowerCase();
+
+            let output = "";
+
+            for (let i = 0; i < students.length; i++) {
+
+                if (students[i].name.toLowerCase().includes(searchValue)) {
+
+                    output +=
+                        "<h3>Name: " + students[i].name + "</h3>" +
+                        "<p>Roll No: " + students[i].rollno + "</p>" +
+                        "<p>Department: " + students[i].department + "</p>" +
+                        "<p>Year: " + students[i].year + "</p>" +
+                        "<hr>";
+                }
+            }
+
+            if (output == "") {
+                output = "<h3>No Student Found</h3>";
+            }
+
+            document.getElementById("studentData").innerHTML = output;
+        }
+
+        function deleteStudents() {
+
+            localStorage.removeItem("students");
+
+            alert("All Students Deleted");
+
+            location.reload();
+        }
+
+    </script>
+
+</body>
+</html>

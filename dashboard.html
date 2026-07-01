@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+    <img src="logo.png" alt="College Logo" width="100">
+    <h1>🏫 Smart Campus Management System</h1>
+    <p>Welcome Admin</p>
+</div>
+<div class="cards">
+
+    <div class="card">
+        <h2>150</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="card">
+        <h2>92%</h2>
+        <p>Attendance</p>
+    </div>
+
+    <div class="card">
+        <h2>15</h2>
+        <p>Faculty</p>
+    </div>
+
+</div>
+    <div class="login-box">
+
+       <button onclick="window.location.href='students.html'">
+    👨‍🎓 Student Details
+</button>
+
+        <br><br>
+
+        <button onclick="window.location.href='attendance.html'">
+           📅 Attendance
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='marks.html'">
+           📖 Marks
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='registration.html'">📋 Student Registration</button>
+
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='student-list.html'">📚 Student List</button>
+
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='timetable.html'">🕒 Timetable</button>
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='fees.html'">💰 Fee Details</button>
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='notifications.html'">🔔 Notifications</button>
+
+        </button>
+
+        <br><br>
+<button onclick="window.location.href='faculty.html'">👨‍🏫 Faculty Details</button>
+</button>
+<br><br>
+        <button onclick="toggleDarkMode()">
+            🌙 Dark Mode
+        </button>
+
+        <br><br>
+        <button onclick="logout()">🚪 Logout</button>
+        </button>
+
+    </div>
+
+    <script>
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+    </script>
+<footer>
+    <p>© 2026 Smart Campus Management System | Developed by Your Name</p>
+</footer>
+</body>
+</html>

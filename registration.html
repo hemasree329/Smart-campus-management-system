@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>Student Registration</h1>
+
+        <input type="text" id="name" placeholder="Enter Student Name">
+
+        <br><br>
+
+        <input type="text" id="rollno" placeholder="Enter Roll Number">
+
+        <br><br>
+
+        <input type="text" id="department" placeholder="Enter Department">
+
+        <br><br>
+
+        <input type="text" id="year" placeholder="Enter Year">
+
+        <br><br>
+
+        <button onclick="registerStudent()">
+            Register
+        </button>
+
+    </div>
+
+<script>
+function registerStudent() {
+
+    let name = document.getElementById("name").value;
+    let rollno = document.getElementById("rollno").value;
+    let department = document.getElementById("department").value;
+    let year = document.getElementById("year").value;
+
+    if(name == "" || rollno == "" || department == "" || year == "") {
+
+        alert("Please fill all fields");
+        return;
+    }
+
+    let student = {
+        name: name,
+        rollno: rollno,
+        department: department,
+        year: year
+    };
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    students.push(student);
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+    alert("Student Registered Successfully");
+
+    document.getElementById("name").value = "";
+    document.getElementById("rollno").value = "";
+    document.getElementById("department").value = "";
+    document.getElementById("year").value = "";
+}
+</script>
+
+</body>
+</html>
